@@ -1,0 +1,199 @@
+# Globale Variablen für alle Server
+domaenen:
+  "01":
+    name: Münster-Mitte-Süd
+    community: Münster
+    ffv4_network: 10.1.0.0/16
+    ffv6_network: 2a03:2260:115:100::/64
+    map_scale: 0.9
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "02":
+    name: Münster-Ost
+    community: Münster
+    ffv4_network: 10.2.0.0/16
+    ffv6_network: 2a03:2260:115:200::/64
+    map_scale: 0.9
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "03":
+    name: Münster-Nord
+    community: Münster
+    ffv4_network: 10.3.0.0/16
+    ffv6_network: 2a03:2260:115:300::/64
+    map_scale: 0.9
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "04":
+    name: Münster-West
+    community: Münster
+    ffv4_network: 10.4.0.0/16
+    ffv6_network: 2a03:2260:115:400::/64
+    map_scale: 0.9
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "05":
+    name: Münster Süd
+    community: Münster
+    ffv4_network: 10.5.0.0/16
+    ffv6_network: 2a03:2260:115:500::/64
+    map_scale: 1.0
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "06":
+    name: Musterhausen
+    community: Test
+    ffv4_network: 10.6.0.0/16
+    ffv6_network: 2a03:2260:115:600::/64
+    map_scale: 1.0
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "07":
+    name: Telgte
+    community: Kreis Warendorf
+    ffv4_network: 10.7.0.0/16
+    ffv6_network: 2a03:2260:115:700::/64
+    map_scale: 1.0
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "08":
+    name: Gescher
+    community: Westmünsterland
+    ffv4_network: 10.8.0.0/16
+    ffv6_network: 2a03:2260:115:800::/64
+    map_scale: 1.0
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "09":
+    name: Stadtlohn
+    community: Westmünsterland
+    ffv4_network: 10.9.0.0/16
+    ffv6_network: 2a03:2260:115:900::/64
+    map_scale: 0.9
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+  "10":
+    name: Borken-Nord
+    community: Borken
+    ffv4_network: 10.10.0.0/16
+    ffv6_network: 2a03:2260:115:1000::/64
+    map_scale: 1.1
+    map_show_contact: false
+    map_max_age: 60
+    map_blinking_hours: 8
+
+# Nummer der Routing Tabelle, die auf den Servern verwendet wird
+routing_table: 42
+
+# Batman Einstellungen
+batman:
+  # Bandbreite, die Batman annoncieren soll
+  downstream: 1024Mbit
+  # Bandbreite, die Batman annoncieren soll
+  upstream: 1024Mbit
+
+# Parameter für das eigene Freifunk-Netzwerk
+ff_network:
+  # Eindeutige AS-Nummer des Netzwerk
+  as_number: 65251
+  # IPv4 Adressraum
+  v4_network: 10.0.0.0/8 #TODO: Legacy! wurde bei fastd verwendet... ausbauen?
+  # IPv6 adressraum
+  v6_network: 2a03:2260:115::/48
+
+administratorenteam:
+  - "parad0x"
+  - "void"
+  - "kgbvax"
+  - "fanlin"
+  - "fungur"
+  - "descilla"
+  - "mpw"
+  - "corny"
+  - "peterb"
+
+bind:
+  ffms_zone_type: slave
+  ffms_zone_masters:
+    - 10.45.67.123
+
+logrotate:
+  cycle: daily
+  count: 3
+
+freifunk:
+  name: "Freifunk Musterstadt"
+  kurzname: "ffmuster"
+  search_domain: "ffmuster"
+  email: info@freifunk-musterstadt.de
+  domain: freifunk-musterstadt.de
+  ffnet_dns_entries_for_internal_tld:
+    "firmware":
+       A: 144.76.30.226
+       AAAA: 2a01:4f8:191:21e1::23
+
+hostname_suffix: ".servers.{{freifunk.domain}}"
+
+bind_zonemaster:
+  server: service.freifunk-musterstadt.de
+  email: info.freifunk-musterstadt.de
+
+dns_entries_for_all_tlds:
+ - '@                                                IN  A       89.163.231.227'
+ - 'www                                              IN  A       89.163.231.227'
+ - 'service                                          IN  A       89.163.231.228'
+ - '; service                                        IN  AAAA    2001:4ba0:ffff:7c::4'
+ - 'karte                                            IN  A       148.251.208.172'
+ - 'karte                                            IN  AAAA    2a01:4f8:191:21e1::b5'
+ - 'firmware                                         IN  A       144.76.30.226'
+ - 'firmware                                         IN  AAAA    2a01:4f8:191:21e1::23'
+
+domains:
+  "freifunk-muensterland.de":
+    extern_dns:
+      - c1024
+      - des1
+      - fanlin
+      - parad0x
+    email: info@freifunk-muensterland.de
+  "freifunk-muenster.de":
+    extern_dns:
+      - c1024
+      - des1
+      - fanlin
+      - parad0x
+    master_server:
+    email: info@freifunk-muenster.de
+  "freifunk-muensterland.net":
+    extern_dns:
+      - c1024
+      - des1
+      - fanlin
+      - parad0x
+    email: info@freifunk-muensterland.net
+    dns_entries:
+  "freifunk-muensterland.org":
+    extern_dns:
+      - c1024
+      - des1
+      - fanlin
+      - parad0x
+    email: info@freifunk-muensterland.org
+    dns_entries:
+  "ffmsl.de":
+    extern_dns:
+      - c1024
+      - des1
+      - fanlin
+      - parad0x
+    email: info@ffmsl.de
+    dns_entries:

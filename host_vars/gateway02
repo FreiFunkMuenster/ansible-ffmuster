@@ -1,0 +1,89 @@
+server_id: 2
+vm_id: 2
+
+server_besitzer: "Günter Mustermensch"
+hoster: "Hetzner"
+    
+domaenenliste:
+   "01":
+      dhcp_start: 10.1.128.0
+      dhcp_ende: 10.1.191.255
+      server_id: 3
+   "02":
+      dhcp_start: 10.2.128.0
+      dhcp_ende: 10.2.191.255
+      server_id: 3
+   "03":
+      dhcp_start: 10.3.128.0
+      dhcp_ende: 10.3.191.255
+      server_id: 3
+   "04":
+      dhcp_start: 10.4.128.0
+      dhcp_ende: 10.4.191.255
+      server_id: 3
+   "05":
+      dhcp_start: 10.5.128.0
+      dhcp_ende: 10.5.191.255
+      server_id: 3
+   "06":
+      dhcp_start: 10.6.128.0
+      dhcp_ende: 10.6.191.255
+      server_id: 3
+   "07":
+      dhcp_start: 10.7.128.0
+      dhcp_ende: 10.7.191.255
+      server_id: 3
+   "08":
+      dhcp_start: 10.8.128.0
+      dhcp_ende: 10.8.191.255
+      server_id: 3
+   "09":
+      dhcp_start: 10.9.128.0
+      dhcp_ende: 10.9.191.255
+      server_id: 3
+   "10":
+      dhcp_start: 10.10.128.0
+      dhcp_ende: 10.10.191.255
+      server_id: 3
+
+ffnw_nat_ip: 185.197.132.34/32
+#oder
+#ffrl_nat_ip: 185.66.193.51/32
+
+ffnw_tun:
+- name: erf1 
+  gre_target: 87.118.74.56
+  v4_remote: 100.100.0.6/31
+  v6_remote: fe80::1/64
+- name: fra1
+  gre_target: 89.46.125.8
+  v4_remote: 100.100.32.6/31
+  v6_remote: fe80::1/64
+- name: ams1
+  gre_target: 185.116.236.32
+  v4_remote: 100.100.64.6/31
+  v6_remote: fe80::1/64
+- name: ber1
+  gre_target: 217.197.83.186
+  v4_remote: 100.100.96.6/31
+  v6_remote: fe80::1/64
+
+ffrl_tun:
+- name: ber1
+  gre_target: 185.66.195.0
+  v4_remote: 100.64.9.66/31
+  v6_remote: 2a03:2260:0:4b6::1/64
+- name: ber2
+  gre_target: 185.66.195.1
+  v4_remote: 100.64.9.68/31
+  v6_remote: 2a03:2260:0:4b7::1/64
+  bgp_local_pref: 201
+- name: fra2
+  gre_target: 185.66.194.1
+  v4_remote: 100.64.9.70/31
+  v6_remote: 2a03:2260:0:4b8::1/64
+- name: dus2
+  gre_target: 185.66.193.1
+  v4_remote: 100.64.9.72/31
+  v6_remote: 2a03:2260:0:4b9::1/64
+  bgp_local_pref: 201
