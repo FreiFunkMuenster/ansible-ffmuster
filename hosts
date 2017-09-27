@@ -1,26 +1,18 @@
-# Allgemeine Infrastruktur-Server 
-[common]
-
-[hypervisors]
-blech1			ansible_ssh_host=10.45.67.1		ansible_ssh_port=22
-blech2			ansible_ssh_host=10.45.67.2		ansible_ssh_port=22
-
-# Service-VM für Zentrale Dienste
-[services]
-services		ansible_ssh_host=10.45.67.3		ansible_ssh_port=22 #TODO: Muss noch Optionalisiert werden!!!
+# Multidomänen-L2TP Gateways mit oder ohne Direktanbindung FFRL oder FFNW
+[gateways]
+gateway01		ansible_ssh_host=10.45.67.1		ansible_ssh_port=22
+gateway02		ansible_ssh_host=10.45.67.2		ansible_ssh_port=22
 
 # Server für Hoppglas Karten
 [mapserver]
-karte			ansible_ssh_host=10.45.67.4		ansible_ssh_port=22
+karte			ansible_ssh_host=10.45.67.3		ansible_ssh_port=22
 
-# Multidomänen-L2TP Gateways mit oder ohne Direktanbindung FFRL oder FFNW
-[gateways]
-gateway01		ansible_ssh_host=10.45.67.5		ansible_ssh_port=22
-gateway02		ansible_ssh_host=10.45.67.6		ansible_ssh_port=22
+# Server für Statistiken mittels Graphite und Grafana
+# TODO: Rollen noch im aufbau!
+[statistics]
+stats			ansible_ssh_host=10.45.67.4		ansible_ssh_port=22
 
-[monitoring]
-icinga			ansible_ssh_host=10.45.67.7		ansible_ssh_port=22
-
-[monitoring-satellites]
-
-[vip-nodes]
+# Server zum bauen und bereitstellen der Firmware
+# TODO: Rollen noch im aufbau!
+[firmwareserver]
+firmware		ansible_ssh_host=10.45.67.5		ansible_ssh_port=22
