@@ -8,7 +8,6 @@ gateway02		ansible_ssh_host=10.45.67.2		ansible_ssh_port=22
 karte			ansible_ssh_host=10.45.67.3		ansible_ssh_port=22
 
 # Server für Statistiken mittels Graphite und Grafana
-# TODO: Rollen noch im aufbau!
 [statistics]
 stats			ansible_ssh_host=10.45.67.4		ansible_ssh_port=22
 
