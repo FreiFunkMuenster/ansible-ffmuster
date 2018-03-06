@@ -1,16 +1,17 @@
 server_besitzer: "FFI"
 hoster: "Hetzner"
 
-grafana:
+
+grafana:							#Optional. Wenn gesetzt wird eine Grafana Instanz Installiert und vorkonfiguriert. 
   nginx:
     host_name: "grafana.{{freifunk.domain}}"
 
-graphite:
+graphite:							#Optional. Wenn gesetzt wird eine Graphite Instanz Installiert und vorkonfiguriert.
   nginx:
     host_name: "graphite.{{freifunk.domain}}"
-  cluster_servers:
-    - server: "graphite-node-01.freifunk-muensterland.de"
-      port: 80
+#  cluster_servers:						#Optional um bspw. die Statistiken der Knoten auf eine andere Instanz auszulagern um so die Last zu verteilen.
+#    - server: "stats2.{{freifunk.domain}}"
+#      port: 80
   relay:
     method: "consistent-hashing"
   cache_instances:

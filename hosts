@@ -1,11 +1,11 @@
 # Multidomänen-L2TP Gateways mit oder ohne Direktanbindung FFRL oder FFNW
 [gateways]
-gateway01		ansible_ssh_host=10.45.67.1		ansible_ssh_port=22
-gateway02		ansible_ssh_host=10.45.67.2		ansible_ssh_port=22
+gateway01		ipv4=10.45.67.1		ipv6=2a01:4f8:123:1234::1		ansible_ssh_host="{{ipv4}}"	ansible_ssh_port=22
+gateway02		ipv4=10.45.67.2		ipv6=2a01:4f8:123:1234::2		ansible_ssh_host="{{ipv4}}"	ansible_ssh_port=22
 
 # Server für Hoppglas Karten
 [mapserver]
-karte			ansible_ssh_host=10.45.67.3		ansible_ssh_port=22
+karte			ipv4=10.45.67.3		ipv6=2a01:4f8:123:1234::3		ansible_ssh_host="{{ipv4}}"	ansible_ssh_port=22
 
 # Server für Statistiken mittels Graphite und Grafana
 [statistics]
